@@ -8,5 +8,5 @@ def story_list(request,category_slug=None):
     story=Story.objects.all()
     if category_slug:
         category=get_object_or_404(Category,slug=category_slug)
-        story=Story,filter(category=category)
+        story=Story.filter(category=category)
     return render(request,'story/story_list.html',{'categories':categories,'story':story,'category':category})

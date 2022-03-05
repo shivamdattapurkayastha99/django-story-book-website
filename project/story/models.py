@@ -9,7 +9,7 @@ class Category(models.Model):
     def __str__(self):
         return self.name
     def get_absolute_url(self):
-        return reverse('story:story_category')
+        return reverse('story:story_category',args=[self.slug,])
 class Story(models.Model):
     category=models.ForeignKey(Category,on_delete=models.CASCADE)
     title=models.CharField(max_length=150)
