@@ -10,3 +10,9 @@ def story_list(request,category_slug=None):
         category=get_object_or_404(Category,slug=category_slug)
         story=Story.filter(category=category)
     return render(request,'story/story_list.html',{'categories':categories,'story':story,'category':category})
+def story_detail(request,id):
+    story=get_object_or_404(Story,id=id)
+    return render(request,'story/story_detail.html',{'story':story})
+    
+
+
